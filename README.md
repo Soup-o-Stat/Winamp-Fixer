@@ -1,5 +1,5 @@
 # Winamp Fixer
-!()[https://github.com/Soup-o-Stat/Winamp-Fixer/blob/main/winamp_fixer.png]
+![](https://github.com/Soup-o-Stat/Winamp-Fixer/blob/main/winamp_fixer.png)
 ## What is it?
 Winamp Fixer is a program that restores your Winamp without reinstalling the player itself (For example, when Winamp crashes when selecting a song)
 ## How to use it?
