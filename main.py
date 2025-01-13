@@ -1,6 +1,5 @@
 import os
 import shutil
-from termcolor import cprint
 
 def find_winamp_folder():
     roaming_path = os.path.join(os.getenv('APPDATA'), 'Winamp')
@@ -12,9 +11,9 @@ def copy_and_remove_folder(source_path, destination_path):
     try:
         shutil.copytree(source_path, destination_path)
         shutil.rmtree(source_path)
-        cprint("Winamp folder successfully moved.", "green")
+        print("Winamp folder successfully moved.")
     except Exception as e:
-        cprint(f"Error while processing Winamp folder: {e}", "red")
+        print(f"Error while processing Winamp folder: {e}")
 
 def fixing_func():
     winamp_folder = find_winamp_folder()
@@ -22,27 +21,27 @@ def fixing_func():
         project_folder = os.path.dirname(os.path.abspath(__file__))
         destination_folder = os.path.join(project_folder, 'Winamp')
 
-        cprint(f"Winamp folder found at: {winamp_folder}", "yellow")
-        cprint(f"Moving to directory: {destination_folder}", "yellow")
+        print(f"Winamp folder found at: {winamp_folder}")
+        print(f"Moving to directory: {destination_folder}")
 
         copy_and_remove_folder(winamp_folder, destination_folder)
     else:
-        cprint("No Winamp folder found in AppData\\Roaming.", "red")
+        print("No Winamp folder found in AppData\\Roaming.")
 
 def main():
-    cprint("Welcome to Winamp Fixer", "blue")
+    print("Welcome to Winamp Fixer")
     while True:
-        cprint("Do you want to fix your Winamp? (y/n)", "blue")
+        print("Do you want to fix your Winamp? (y/n)")
         confirm_fix = input().strip().lower()
         if confirm_fix == "y":
-            cprint("The fixing process has started...", "yellow")
+            print("The fixing process has started...")
             fixing_func()
             break
         elif confirm_fix == "n":
-            cprint("Exiting program.", "blue")
+            print("Exiting program.")
             break
         else:
-            cprint("Invalid input. Please enter 'y' or 'n'.", "red")
+            print("Invalid input. Please enter 'y' or 'n'.")
 
 if __name__ == "__main__":
     main()
